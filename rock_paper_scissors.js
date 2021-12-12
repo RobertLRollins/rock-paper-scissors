@@ -1,44 +1,59 @@
 /* computerPlay() function randomly return rock paper or scissors */
-
-function computerPlay(){
-    const play = ["cRock", "cPaper", "cScissors"];
-
-    const random = Math.floor(Math.random() * play.length);
-
-    return play[random];
-    //console.log(random, play[random]);
-}
-    console.log(computerPlay());
-
-/* playerSelection(make sure this input is not case-sensative) and computerSelection 
+/* playerPlay(make sure this input is not case-sensative) and computerSelection 
 parameters added to a function that plays a round of rock paper scissors and returns 
 string declaring a winner: "You Win! Rock beats Scissors" use console.log() to display
 the returned string. call this function playRound()*/
 
-//playerSelection
+
+
+function computerPlay(){
+    const cPlay = ["cRock", "cPaper", "cScissors"];
+    const random = Math.floor(Math.random() * cPlay.length);
+    return cPlay[random];
+}
+    
+
 let playerPlay = prompt("rock paper or scissors?");
-function playerSelection(a){
-    if (a == "rock"){
-        return "pRock";
+playerPlay = playerPlay.toLowerCase();
+
+
+
+function playRound(pPlay,cPlay) {
+
+    if (pPlay == "rock" & cPlay == "cRock") { return "Tie" }
+    else if (pPlay == "rock" & cPlay == "cPaper") { return "You Lose! Paper beats Rock" }
+    else if (pPlay == "rock" & cPlay == "cScissors") { return "You Win! Rock beats Scissors" }
+    
+    else if (pPlay == "paper" & cPlay == "cRock") { return "You Win! Paper beats Rock" }
+    else if (pPlay == "paper" & cPlay == "cPaper") { return "Tie" }
+    else if (pPlay == "paper" & cPlay == "cScissors") { return "You Lose! Scissors beats Paper" }
+    
+    else if (pPlay == "scissors" & cPlay == "cRock") { return "You Lose! Rock beats Scissors" }
+    else if (pPlay == "scissors" & cPlay == "cPaper") { return "You Win! Scissors beats Paper" }
+    else if (pPlay == "scissors" & cPlay == "cScissors") { return "Tie" }
+
+    else return "You Lose! Invalid Input";
     }
 
+    console.log(playRound(playerPlay, computerPlay()));
 
-}
+    playerPlay = prompt("rock paper or scissors?");
+    playerPlay = playerPlay.toLowerCase();
+    console.log(playRound(playerPlay, computerPlay()));
 
-console.log(playerSelection(playerPlay));
+    playerPlay = prompt("rock paper or scissors?");
+    playerPlay = playerPlay.toLowerCase();
+    console.log(playRound(playerPlay, computerPlay()));
 
-
-
-
-
-
-
-
-
-
-
-
-
+    playerPlay = prompt("rock paper or scissors?");
+    playerPlay = playerPlay.toLowerCase();
+    console.log(playRound(playerPlay, computerPlay()));
+    
+    playerPlay = prompt("rock paper or scissors?");
+    playerPlay = playerPlay.toLowerCase();
+    console.log(playRound(playerPlay, computerPlay()));
+  
+    
 
 
 

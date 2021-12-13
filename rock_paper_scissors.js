@@ -1,69 +1,56 @@
-/* computerPlay() function randomly return rock paper or scissors */
-/* playerPlay(make sure this input is not case-sensative) and computerSelection 
-parameters added to a function that plays a round of rock paper scissors and returns 
-string declaring a winner: "You Win! Rock beats Scissors" use console.log() to display
-the returned string. call this function playRound()*/
+let playerScore = 0
+let computerScore = 0
+const buttons = document.querySelectorAll('input')
 
-
-
-function computerPlay(){
-    const cPlay = ["cRock", "cPaper", "cScissors"];
-    const random = Math.floor(Math.random() * cPlay.length);
-    return cPlay[random];
+function computerPlay() {
+    let choices = ['rock', 'paper', 'scissors']
+    return choices[Math.floor(Math.random() * choices.length)]
 }
-    
 
-let playerPlay = prompt("rock paper or scissors?");
-playerPlay = playerPlay.toLowerCase();
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
+function playRound(playerSelection) {
+    let computerSelection = computerPlay()
+    let result = ""
 
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper') ||
+        (playerSelection == 'paper' && computerSelection == 'rock')) {
+        
+        playerScore += 1
+        result = ('You win! ' + playerSelection + ' beats ' + computerSelection
+            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
-function playRound(pPlay,cPlay) {
+        if (playerScore == 5) {
+            result += '<br><br>You won the game! Reload the page to play again'
+            disableButtons()
+        }
+    }
+    else if (playerSelection == computerSelection) {
+        result = ('It\'s a tie. You both chose ' + playerSelection
+            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+    }
+    else {
+        computerScore += 1
+        result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
+            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
-    if (pPlay == "rock" & cPlay == "cRock") { return "Tie" }
-    else if (pPlay == "rock" & cPlay == "cPaper") { return "You Lose! Paper beats Rock" }
-    else if (pPlay == "rock" & cPlay == "cScissors") { return "You Win! Rock beats Scissors" }
-    
-    else if (pPlay == "paper" & cPlay == "cRock") { return "You Win! Paper beats Rock" }
-    else if (pPlay == "paper" & cPlay == "cPaper") { return "Tie" }
-    else if (pPlay == "paper" & cPlay == "cScissors") { return "You Lose! Scissors beats Paper" }
-    
-    else if (pPlay == "scissors" & cPlay == "cRock") { return "You Lose! Rock beats Scissors" }
-    else if (pPlay == "scissors" & cPlay == "cPaper") { return "You Win! Scissors beats Paper" }
-    else if (pPlay == "scissors" & cPlay == "cScissors") { return "Tie" }
-
-    else return "You Lose! Invalid Input";
+        if (computerScore == 5) {
+            result += '<br><br>I won the game! Reload the page to play again'
+            disableButtons()
+        }
     }
 
-    console.log(playRound(playerPlay, computerPlay()));
+    document.getElementById('result').innerHTML = result
+    return
+}
 
-    playerPlay = prompt("rock paper or scissors?");
-    playerPlay = playerPlay.toLowerCase();
-    console.log(playRound(playerPlay, computerPlay()));
-
-    playerPlay = prompt("rock paper or scissors?");
-    playerPlay = playerPlay.toLowerCase();
-    console.log(playRound(playerPlay, computerPlay()));
-
-    playerPlay = prompt("rock paper or scissors?");
-    playerPlay = playerPlay.toLowerCase();
-    console.log(playRound(playerPlay, computerPlay()));
-    
-    playerPlay = prompt("rock paper or scissors?");
-    playerPlay = playerPlay.toLowerCase();
-    console.log(playRound(playerPlay, computerPlay()));
-  
-    
-
-
-
-
-
-
-
-
-/* Write a NEW function called game(). Use the previous function inside of this one 
-to play a first to 5 game (learn to loop function) that keeps score and reports a winner 
-or loser at the end. Use console.log() to display each rounds result and winner at the 
-end. Use prompt to get user input. Feel free to re-work previous funtions/return values
-and to create new "helper funtions*/
+buttons.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRound(button.value)
+    })
+})

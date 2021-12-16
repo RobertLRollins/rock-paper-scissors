@@ -1,6 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
-
+let finalResult = "First to 5 wins";
+let result = "Chose your weapon";
+document.getElementById('finalResult').innerHTML = finalResult
+document.getElementById('result').innerHTML = result
+document.getElementById('playerScore').innerHTML = playerScore
+document.getElementById('computerScore').innerHTML = computerScore
 function computerPlay() {
     let choices = ['rock', 'paper', 'scissors']
     return choices[Math.floor(Math.random() * choices.length)]
@@ -11,7 +16,6 @@ playerPlay = playerPlay.toLowerCase();
 
 function playRound(playerSelection) {
     let computerSelection = computerPlay();
-    let result;
 
     for(;;){
         
@@ -22,10 +26,14 @@ function playRound(playerSelection) {
             playerScore += 1
             result = ('You win! ' + playerSelection + ' beats ' + computerSelection
                 + " Player score: " + playerScore + " Computer score: " + computerScore)
+                document.getElementById('result').innerHTML = result
                 console.log(result);
 
             if (playerScore == 5) {
-                result += ' You won the game! Reload the page to play again'
+                document.getElementById('playerScore').innerHTML = playerScore
+                finalResult = ' You won the game! Reload the page to play again'
+                document.getElementById('finalResult').innerHTML = finalResult
+                document.getElementById('result').innerHTML = result
                 console.log(result);
                 break
             }
@@ -33,6 +41,7 @@ function playRound(playerSelection) {
         else if (playerSelection == computerSelection) {
             result = ('It\'s a tie. You both chose ' + playerSelection
                 + " Player score: " + playerScore + " Computer score: " + computerScore)
+                document.getElementById('result').innerHTML = result
                 console.log(result);
         }
         else {
@@ -40,13 +49,19 @@ function playRound(playerSelection) {
             result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
                 + " Player score: " + playerScore + " Computer score: " + computerScore)
                 console.log(result);
+                document.getElementById('result').innerHTML = result
 
             if (computerScore == 5) {
-                result += ' I won the game! Reload the page to play again'
+                document.getElementById('computerScore').innerHTML = computerScore
+                finalResult = ' I won the game! Reload the page to play again'
+                document.getElementById('finalResult').innerHTML = finalResult
+                document.getElementById('result').innerHTML = result
                 console.log(result);
                 break
             }
         }
+        document.getElementById('playerScore').innerHTML = playerScore
+        document.getElementById('computerScore').innerHTML = computerScore
         computerSelection = computerPlay();
         playerSelection = prompt('Enter Rock Paper or Scissors:','');
         playerSelection = playerSelection.toLowerCase();

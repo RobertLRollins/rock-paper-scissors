@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+}
+
+button {
+    margin: 5px;
+}
+
+.scores {
+    display: flex;
+}

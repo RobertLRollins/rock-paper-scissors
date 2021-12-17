@@ -1,18 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
-    color: yellow;
+    background-color: rgb(66, 66, 66);
+    color: aqua;
+    font-family: 'Audiowide', 'Lucida Console', monospace;
 }
 
 .titleLogo {
+    width: 600px;
+    height: auto; 
+    margin-top: 30px;
+}
+
+.tagline {
     width: 500px;
     height: auto; 
+    margin-top: 0px;
+}
+
+h4 {
+    margin: 5px;
 }
 
 .buttons {
     display: flex;
+}
+
+.button {
+    width: 100px;
+    height: auto;
 }
 
 input {
@@ -22,3 +41,6 @@ input {
 .scores {
     display: flex;
 }
+
+/*
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

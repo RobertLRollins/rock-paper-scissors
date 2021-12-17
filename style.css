@@ -2,6 +2,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: black;
+    color: yellow;
+}
+
+.titleLogo {
+    width: 500px;
+    height: auto; 
 }
 
 .buttons {

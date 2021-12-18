@@ -45,7 +45,7 @@ function playRound(playerSelection) {
         result = ('You lose! ' + computerSelection + ' beats ' + playerSelection)
 
         if (computerScore == 5) {
-            finalResult = 'I won the game! Reload the page to play again'
+            finalResult = 'You lost the game! Reload the page to play again'
             disableButtons()
         }
     }

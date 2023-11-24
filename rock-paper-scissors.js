@@ -16,7 +16,9 @@ function playRound(playerSelection, computerSelection) {
     || playerSelection === "Paper" && computerSelection === "Scissors"
     || playerSelection === "Rock" && computerSelection === "Paper") {
         return "You Lose! " + computerSelection + " beats " + playerSelection
-    } else { return "It's a tie. You both picked " + computerSelection}
+    } else { 
+        return "It's a tie. You both picked " + computerSelection
+    }
 }
 
     const playerSelection = "Rock";

@@ -4,7 +4,7 @@ function getComputerChoice(){
         "Paper",
         "Scissors"
     ];
-    return choices[Math.floor(Math.random()*choices.length)];
+    return choices[Math.floor(Math.random()*choices.length)]; // returns a random selection
 }
 
 function playRound(playerSelection, computerSelection) {

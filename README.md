@@ -2,26 +2,33 @@
 
 ## Pseudocode
 
-* COMPUTE the computers randomly selected choice of 'Rock', 'Paper', or 'Scissors' FUNCTION getComputerChoice()
-  * INITIALIZE choices
+* FUNCTION getRandom(arr)
+  * RETURN random selection from arr
+
+* FUNCTION capitalizeFirstLetter(str)
+  * SET str to lower case
+  * SET first letter of str to upper case
+  * RETURN str
+
+* FUNCTION getComputerChoice()
+  * INITIALIZE choices 'Rock', 'Paper', or 'Scissors'
   * RETURN random result from choices
 
-* GET the player to choose 'Rock', 'Paper', or 'Scissors'
-  * MAKE case-insensitive
-  * RETURN the result
+* FUNCTION getPlayerChoice()
+  * PROMPT 'Rock', 'Paper', or 'Scissors'
+  * RETURN capitalized choice
 
-* DETERMINE winner FUNCTION playRound(playerSelection, computerSelection)
-  * IF player picked 'Rock' & computer picked 'Scissors'
-    * OR player picked 'Scissor' & computer picked 'Paper'
-    * OR player picked 'Paper' & computer picked 'Rock'
+* FUNCTION playRound(playerSelection, computerSelection)
+  * IF playerSelection 'Rock' & computerSelection 'Scissors'
+    * OR playerSelection 'Scissor' & computerSelection 'Paper'
+    * OR playerSelection 'Paper' & computerSelection 'Rock'
       * RETURN "You W"
-  * ELSEIF player picked 'Scissors' & computer picked 'Rock'
-    * OR player picked 'Paper' & computer picked 'Scissors'
-    * OR player picked 'Rock' & computer picked 'Paper'
+  * ELSEIF playerSelection 'Scissors' & computerSelection 'Rock'
+    * OR playerSelection 'Paper' & computerSelection 'Scissors'
+    * OR playerSelection 'Rock' & computerSelection 'Paper'
       * RETURN "You L"
   * ENDIF
 
-* INITIALIZE roundResult
 * INITIALIZE playerScore = 0
 * INITIALIZE computerScore = 0
 
@@ -30,7 +37,7 @@
   * IF playerSelection != 'Rock', 'Paper', or 'Scissors'
     * SKIPITERATION
   * INITIALIZE computerSelection = CALL getComputerChoice()
-  * SET roundResult = CALL playRound( playerSelection, computerSelection )
+  * INITIALIZE roundResult = CALL playRound( playerSelection, computerSelection )
     * IF the player scores
       * INCREMENT the players score
       * PRINT "You Win! player pick beats computer pick"

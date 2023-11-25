@@ -1,26 +1,34 @@
+function getRandom(arr) {
+    return arr[Math.floor (Math.random() * arr.length)];
+}
+
+function capitalizeFirstLetter(str) {
+    str = str.toLowerCase();
+    return str[0].toUpperCase() + str.slice(1);
+}
+
 function getComputerChoice() {
     let choices = [
         "Rock",
         "Paper",
         "Scissors"
     ];
-    return choices[ Math.floor( Math.random()*choices.length ) ]; // returns a random selection
+    return getRandom(choices);
 }
 
 function getPlayerChoice() {
     let choice = prompt("Rock, Paper, or Scissors?");
-    choice = choice.toLowerCase();
-    return choice[0].toUpperCase() + choice.slice(1);
+    return capitalizeFirstLetter(choice);
 }
 
 function playRound(playerSelection, computerSelection) {
-    if ( playerSelection === "Rock" && computerSelection === "Scissors" 
+    if (playerSelection === "Rock" && computerSelection === "Scissors" 
     || playerSelection === "Scissors" && computerSelection === "Paper"
-    || playerSelection === "Paper" && computerSelection === "Rock" ) {
+    || playerSelection === "Paper" && computerSelection === "Rock") {
             return "You W"
-    } else if ( playerSelection === "Scissors" && computerSelection === "Rock" 
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock" 
     || playerSelection === "Paper" && computerSelection === "Scissors"
-    || playerSelection === "Rock" && computerSelection === "Paper" ) {
+    || playerSelection === "Rock" && computerSelection === "Paper") {
         return "You L"
     } 
 }
@@ -28,34 +36,35 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 
-while ( playerScore < 3 && computerScore < 3 ) {
+while (playerScore < 3 && computerScore < 3) {
 
     let playerSelection = getPlayerChoice();
 
-    if ( playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors" ) {
-        console.log( "Invalid Input" )
+    if (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
+        console.log("Invalid Input");
         continue;
     }
 
     let computerSelection = getComputerChoice();
-    let roundResult = playRound( playerSelection, computerSelection );
-    if ( roundResult === "You W" ) {
+    let roundResult = playRound(playerSelection, computerSelection);
+    
+    if (roundResult === "You W") {
         playerScore++
-        console.log( "You won the round! " + playerSelection + " beats " + computerSelection )
-    } else if ( roundResult === "You L" ) {
+        console.log("You won the round! " + playerSelection + " beats " + computerSelection);
+    } else if (roundResult === "You L") {
         computerScore++
-        console.log( "You lost the round! " + computerSelection + " beats " + playerSelection )
+        console.log("You lost the round! " + computerSelection + " beats " + playerSelection);
     } else {
-        console.log( "The round is a tie. You both picked " + computerSelection )
+        console.log("The round is a tie. You both picked " + computerSelection);
     }
 }
 
-if ( playerScore === 3 ) {
-    console.log( "YOU WON THE GAME! " );
+if (playerScore === 3) {
+    console.log("YOU WON THE GAME! ");
 
 }
 if (computerScore === 3) {
-    console.log( "YOU LOST THE GAME!" );
+    console.log("YOU LOST THE GAME!");
 }
 
-console.log( "Refresh browser to play again!")
+console.log("Refresh browser to play again!")

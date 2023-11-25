@@ -1,10 +1,16 @@
-function getComputerChoice(){
+function getComputerChoice() {
     let choices = [
         "Rock",
         "Paper",
         "Scissors"
     ];
     return choices[ Math.floor( Math.random()*choices.length ) ]; // returns a random selection
+}
+
+function getPlayerChoice() {
+    let choice = prompt("Rock, Paper, or Scissors?");
+    choice = choice.toLowerCase();
+    return choice[0].toUpperCase() + choice.slice(1);
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -19,14 +25,20 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
-let roundResult;
 let playerScore = 0;
 let computerScore = 0;
 
 while ( playerScore < 3 && computerScore < 3 ) {
-    let playerSelection = "Rock";
+
+    let playerSelection = getPlayerChoice();
+
+    if ( playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors" ) {
+        console.log( "Invalid Input" )
+        continue;
+    }
+
     let computerSelection = getComputerChoice();
-    roundResult = playRound( playerSelection, computerSelection );
+    let roundResult = playRound( playerSelection, computerSelection );
     if ( roundResult === "You W" ) {
         playerScore++
         console.log( "You won the round! " + playerSelection + " beats " + computerSelection )

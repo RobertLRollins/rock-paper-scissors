@@ -26,10 +26,10 @@
 * INITIALIZE computerScore = 0
 
 * WHILE the player AND the computer have won less the 3 games
-  * INITIALIZE playerSelection
-    * CALL getPlayerChoice()
-  * INITIALIZE computerSelection
-    * CALL getComputerChoice()
+  * INITIALIZE playerSelection = CALL getPlayerChoice()
+  * IF playerSelection != 'Rock', 'Paper', or 'Scissors'
+    * SKIPITERATION
+  * INITIALIZE computerSelection = CALL getComputerChoice()
   * SET roundResult = CALL playRound( playerSelection, computerSelection )
     * IF the player scores
       * INCREMENT the players score

@@ -2,7 +2,7 @@
 
 ## Pseudocode
 
-* COMPUTE the computers randomly selected choice of 'Rock', 'Paper', or 'Scissors'
+* COMPUTE(function) the computers randomly selected choice of 'Rock', 'Paper', or 'Scissors'
   * INITIALIZE the choices
   * RETURN the randomly selected result
 
@@ -10,7 +10,7 @@
   * MAKE case-insensitive
   * RETURN the result
 
-* DETERMINE the winner by "playing a round"
+* DETERMINE(function) round winner by "playing a round"
   * IF player picked 'Rock' & computer picked 'Scissors'
     * OR player picked 'Scissor' & computer picked 'Paper'
     * OR player picked 'Paper' & computer picked 'Rock'
@@ -21,6 +21,7 @@
       * RETURN "You Lose! computer pick beats player pick"
   * Else
     * RETURN "It's a tie. You both picked computer pick"
+  * ENDIF
 
 * INITIALIZE the players selection
   * CALL "the players choice"
@@ -29,3 +30,12 @@
 * PRINT a string that declares the winner of the round
   * INPUT "the players choice"
   * INPUT "the players choice"
+
+* WHILE the player OR the computer has won less the 3 games
+  * DETERMINE round winner by "playing a round"
+    * IF the player scores
+      * INCREMENT the players score
+    * ELSEIF the computer scores
+      * INCREMENT the computers score
+    * ELSE do nothing
+* ENDWHILE

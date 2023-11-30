@@ -68,3 +68,23 @@ if (computerScore === 3) {
 }
 
 console.log("Refresh browser to play again!")
+
+/*
+let selectionMenu = document.querySelector('#selectionMenu');
+
+selectionMenu.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch(target.id) {
+        case 'rock':
+            playerSelection = 'Rock';
+            break;
+        case 'paper':
+            playerSelection = 'Paper';
+            break;
+        case 'scissors':
+            playerSelection = 'Scissors';
+            break;
+    }
+});
+*/

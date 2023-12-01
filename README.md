@@ -57,3 +57,11 @@
 * ENDIF
 
 * PRINT refresh to play again
+
+
+# ToDo
+
+* Rework pseudoode
+* Add 2077 UI
+* stop event listener when game is won/lost
+

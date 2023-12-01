@@ -21,33 +21,21 @@ function getPlayerChoice() {
     return capitalizeFirstLetter(choice);
 }
 
+let playerScore = 0;
+let computerScore = 0;
+let roundResult;
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors" 
     || playerSelection === "Scissors" && computerSelection === "Paper"
     || playerSelection === "Paper" && computerSelection === "Rock") {
-            return "You W"
+        roundResult = "You W"
     } else if (playerSelection === "Scissors" && computerSelection === "Rock" 
     || playerSelection === "Paper" && computerSelection === "Scissors"
     || playerSelection === "Rock" && computerSelection === "Paper") {
-        return "You L"
-    } 
-}
+        roundResult = "You L"
+    } else {roundResult = "tie"}
 
-let playerScore = 0;
-let computerScore = 0;
-
-while (playerScore < 3 && computerScore < 3) {
-
-    let playerSelection = getPlayerChoice();
-
-    if (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
-        console.log("Invalid Input");
-        continue;
-    }
-
-    let computerSelection = getComputerChoice();
-    let roundResult = playRound(playerSelection, computerSelection);
-    
     if (roundResult === "You W") {
         playerScore++
         console.log("You won the round! " + playerSelection + " beats " + computerSelection);
@@ -57,19 +45,19 @@ while (playerScore < 3 && computerScore < 3) {
     } else {
         console.log("The round is a tie. You both picked " + computerSelection);
     }
+
+    if (playerScore === 3) {
+        console.log("YOU WON THE GAME! ");
+        console.log("Refresh browser to play again!")
+    }
+    if (computerScore === 3) {
+        console.log("YOU LOST THE GAME!");
+        console.log("Refresh browser to play again!")
+    }
+    
 }
 
-if (playerScore === 3) {
-    console.log("YOU WON THE GAME! ");
 
-}
-if (computerScore === 3) {
-    console.log("YOU LOST THE GAME!");
-}
-
-console.log("Refresh browser to play again!")
-
-/*
 let selectionMenu = document.querySelector('#selectionMenu');
 
 selectionMenu.addEventListener('click', (event) => {
@@ -78,13 +66,18 @@ selectionMenu.addEventListener('click', (event) => {
     switch(target.id) {
         case 'rock':
             playerSelection = 'Rock';
+            computerSelection = getComputerChoice();
+            playRound(playerSelection, computerSelection)
             break;
         case 'paper':
             playerSelection = 'Paper';
+            computerSelection = getComputerChoice();
+            playRound(playerSelection, computerSelection)
             break;
         case 'scissors':
             playerSelection = 'Scissors';
+            computerSelection = getComputerChoice();
+            playRound(playerSelection, computerSelection)
             break;
     }
 });
-*/

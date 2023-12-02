@@ -2,10 +2,18 @@ function getRandom(arr) {
     return arr[Math.floor (Math.random() * arr.length)];
 }
 
+//Used for playing in the console
+/*
 function capitalizeFirstLetter(str) {
     str = str.toLowerCase();
     return str[0].toUpperCase() + str.slice(1);
 }
+
+function getPlayerChoice() {
+    let choice = prompt("Rock, Paper, or Scissors?");
+    return capitalizeFirstLetter(choice);
+}
+*/
 
 function getComputerChoice() {
     let choices = [
@@ -16,21 +24,21 @@ function getComputerChoice() {
     return getRandom(choices);
 }
 
-function getPlayerChoice() {
-    let choice = prompt("Rock, Paper, or Scissors?");
-    return capitalizeFirstLetter(choice);
-}
+
 
 let playerScore = 0;
 let computerScore = 0;
 let roundCall;
 let roundResult = 'Chose your weapon';
+let finalResult = 'First to 3 wins';
 const playerScoreDisplay = document.getElementById("playerScore");
 const computerScoreDisplay = document.getElementById("computerScore");
 playerScoreDisplay.textContent = playerScore;
 computerScoreDisplay.textContent = computerScore;
 const roundResultDisplay = document.getElementById("roundResult");
 roundResultDisplay.textContent = roundResult;
+const finalResultDisplay = document.getElementById("finalResult");
+finalResultDisplay.textContent = finalResult;
 
 function playRound(playerSelection, computerSelection) {
     if (playerScore === 3 || computerScore === 3) {
@@ -44,33 +52,28 @@ function playRound(playerSelection, computerSelection) {
     || playerSelection === "Paper" && computerSelection === "Scissors"
     || playerSelection === "Rock" && computerSelection === "Paper") {
         roundCall = "You L"
-    } else {roundResult = "tie"}
+    } else {roundCall = "tie"}
 
     if (roundCall === "You W") {
         playerScore++
         playerScoreDisplay.textContent = playerScore;
         roundResult = "You won the round! " + playerSelection + " beats " + computerSelection;
         roundResultDisplay.textContent = roundResult;
-        console.log("You won the round! " + playerSelection + " beats " + computerSelection);
     } else if (roundCall === "You L") {
         computerScore++
         computerScoreDisplay.textContent = computerScore;
         roundResult = "You lost the round! " + computerSelection + " beats " + playerSelection;
         roundResultDisplay.textContent = roundResult;
-        console.log("You lost the round! " + computerSelection + " beats " + playerSelection);
     } else {
         roundResult = "The round is a tie. You both picked " + computerSelection;
         roundResultDisplay.textContent = roundResult;
-        console.log("The round is a tie. You both picked " + computerSelection);
     }
 
     if (playerScore === 3) {
-        console.log("YOU WON THE GAME! ");
-        console.log("Refresh browser to play again!")
+        finalResultDisplay.textContent = "YOU WON THE GAME! Refresh browser to play again!";
     }
     if (computerScore === 3) {
-        console.log("YOU LOST THE GAME!");
-        console.log("Refresh browser to play again!")
+        finalResultDisplay.textContent = "YOU LOST THE GAME! Refresh browser to play again!";
     }
     
 }

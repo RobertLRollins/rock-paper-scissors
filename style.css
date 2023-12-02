@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(12, 12, 12);
+    color: aqua;
+    font-family: 'Audiowide', 'Lucida Console', monospace;
+}
+
+.titleLogo {
+    width: 1000px;
+    height: auto; 
+    margin-top: 30px;
+}
+
+.tagline {
+    width: 800px;
+    height: auto; 
+    margin-top: 0px;
+}
+
+h1,h2,h3 {
+    margin: 10px 5px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border-radius: 6px;
+    box-shadow: 0px 8px 15px aqua;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    padding: 6px;
+    margin: 15px;
+    }
+  
+  .button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: yellow;
+    transform: translateY(-7px);
+  }
+
+input {
+    margin: 5px;
+}
+
+.scores {
+    display: flex;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: yellow;
+    font-size: 25px;
+    padding-bottom: 6px;
+}
+
+a {
+    color: aqua;
+}

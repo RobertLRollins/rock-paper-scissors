@@ -1,6 +1,6 @@
 # rock-paper-scissors
 
-## Pseudocode
+## Pseudocode written at start of project
 
 * FUNCTION getRandom(arr)
   * RETURN random selection from arr
@@ -57,12 +57,4 @@
 * ENDIF
 
 * PRINT refresh to play again
-
-
-# ToDo
-
-* Rework pseudoode
-* Add UI
-* stop event listener when game is won/lost
-* style UI
 

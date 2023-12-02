@@ -23,26 +23,44 @@ function getPlayerChoice() {
 
 let playerScore = 0;
 let computerScore = 0;
-let roundResult;
+let roundCall;
+let roundResult = 'Chose your weapon';
+const playerScoreDisplay = document.getElementById("playerScore");
+const computerScoreDisplay = document.getElementById("computerScore");
+playerScoreDisplay.textContent = playerScore;
+computerScoreDisplay.textContent = computerScore;
+const roundResultDisplay = document.getElementById("roundResult");
+roundResultDisplay.textContent = roundResult;
 
 function playRound(playerSelection, computerSelection) {
+    if (playerScore === 3 || computerScore === 3) {
+        return;
+    }
     if (playerSelection === "Rock" && computerSelection === "Scissors" 
     || playerSelection === "Scissors" && computerSelection === "Paper"
     || playerSelection === "Paper" && computerSelection === "Rock") {
-        roundResult = "You W"
+        roundCall = "You W"
     } else if (playerSelection === "Scissors" && computerSelection === "Rock" 
     || playerSelection === "Paper" && computerSelection === "Scissors"
     || playerSelection === "Rock" && computerSelection === "Paper") {
-        roundResult = "You L"
+        roundCall = "You L"
     } else {roundResult = "tie"}
 
-    if (roundResult === "You W") {
+    if (roundCall === "You W") {
         playerScore++
+        playerScoreDisplay.textContent = playerScore;
+        roundResult = "You won the round! " + playerSelection + " beats " + computerSelection;
+        roundResultDisplay.textContent = roundResult;
         console.log("You won the round! " + playerSelection + " beats " + computerSelection);
-    } else if (roundResult === "You L") {
+    } else if (roundCall === "You L") {
         computerScore++
+        computerScoreDisplay.textContent = computerScore;
+        roundResult = "You lost the round! " + computerSelection + " beats " + playerSelection;
+        roundResultDisplay.textContent = roundResult;
         console.log("You lost the round! " + computerSelection + " beats " + playerSelection);
     } else {
+        roundResult = "The round is a tie. You both picked " + computerSelection;
+        roundResultDisplay.textContent = roundResult;
         console.log("The round is a tie. You both picked " + computerSelection);
     }
 

@@ -62,6 +62,7 @@
 # ToDo
 
 * Rework pseudoode
-* Add 2077 UI
+* Add UI
 * stop event listener when game is won/lost
+* style UI
 

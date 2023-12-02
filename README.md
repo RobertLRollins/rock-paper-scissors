@@ -1,5 +1,7 @@
 # rock-paper-scissors
 
+https://robertlrollins.github.io/rock-paper-scissors/
+
 ## Pseudocode written at start of project
 
 * FUNCTION getRandom(arr)
